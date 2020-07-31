@@ -16,7 +16,6 @@ void findP(int N,int r,int c) {
 		r -= mid;
 		rp++;
 	}
-	mid = pow(2,N) / 2;
 	if  (c >= mid) {
 		c -= mid;
 		cp++;
