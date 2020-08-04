@@ -4,7 +4,6 @@
 unsigned long long dp[31][31];
 
 unsigned long long wh(int w,int h) {
-	if (dp[w][h] != 0) return dp[w][h];
 	if (h == 0) {
 		return wh(w - 1, h + 1);
 	}
@@ -12,6 +11,7 @@ unsigned long long wh(int w,int h) {
 	if (w == 1) {
 		return dp[w][h] = w + h;
 	}
+	if (dp[w][h] != 0) return dp[w][h];
 
 	return dp[w][h] = wh(w - 1,h + 1) + wh(w,h - 1);
 }
