@@ -18,10 +18,8 @@ int* RGB(int T) {
 int main() {
 	int T;
 	scanf("%d", &T);
-	for (int i = 0; i < T; i++) {
-		for (int j = 0; j < 3; j++) {
+	for (int i = 0; i < T; i++) 
+		for (int j = 0; j < 3; j++) 
 			scanf("%d", &A[i][j]);
-		}
-	}
 	printf("%d", min(min(RGB(T)[0], RGB(T)[1]), RGB(T)[2]));
 }
