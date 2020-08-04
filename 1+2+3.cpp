@@ -10,7 +10,8 @@ int partial_sum(int n) {
 int main() {
     int T, n;
     scanf("%d", &T);
-    for (int i = 0; i < T; i++) {
+    for (int i = 0; i < T; i++) 
+    {
         scanf("%d", &n);
         printf("%d\n", partial_sum(n));
     }
