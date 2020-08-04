@@ -4,7 +4,6 @@
 unsigned long long dp[31][31];
 
 unsigned long long wh(int w,int h) {
-	if (w == 1 && h == 0) return 1;
 	if (h == 0) {
 		return wh(w - 1, h + 1);
 	}
