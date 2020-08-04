@@ -16,17 +16,16 @@ unsigned long long wh(int w,int h) {
 	return dp[w][h] = wh(w - 1,h + 1) + wh(w,h - 1);
 }
 int main() {
-	int input;
+	int N;
 	int w[1000];
-	int h = 0;
 	int i = 0;
 	while (1) {
 		scanf("%d", &input);
-		if (input == 0) break;
-		w[i] = input;
+		if (N == 0) break;
+		w[i] = N;
 		i++;
 	}
 	for (int j = 0; j < i; j++) {
-		printf("%llu\n", wh(w[j], h));
+		printf("%llu\n", wh(w[j], 0));
 	}
 }
