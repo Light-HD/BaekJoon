@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 
-int sum=0;
+int sum;
 
 int base_Z(int r, int c) {
 	if (r == 0 && c == 0) return 0;
