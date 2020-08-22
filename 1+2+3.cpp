@@ -1,5 +1,5 @@
 #include <stdio.h>
-int dp[11];
+int dp[11];  //dp
 int partial_sum(int n) {
     if (n == 1) return 1;    // 초기값 지정
     if (n == 2) return 2;
