@@ -1,14 +1,14 @@
 #include <stdio.h>
-#define SIZE 16
-#define INF 10000000  //¹«ÇÑÀ» Ç¥ÇöÇÑ °ª
-#define START 0    //½ÃÀÛÁ¡
-#define END N-1    //µµÂøÁ¡
+#define SIZE 16  //ì‚¬ì´ì¦ˆ í¬ê¸°
+#define INF 10000000  //ë¬´í•œì„ í‘œí˜„í•œ ê°’
+#define START 0    //ì‹œì‘ì 
+#define END N-1    //ë„ì°©ì 
 
-int N; //½ÃÀÛÁ¡°ú µµÂøÁ¡À» Æ÷ÇÔÇÑ ³ëµå °¹¼ö
-int W[SIZE][SIZE];  //°æ·Î ºñ¿ë ¹è¿­
-int dist[SIZE];  //start¿¡¼­ºÎÅÍ ÃÖ¼Ò °Å¸®¸¦ ÀúÀåÇÏ´Â ¹è¿­
-int prenode[SIZE]; //ÀÌÀü³ëµå¸¦ ÀúÀåÇÏ´Â ¹è¿­
-bool visit[SIZE];  //¹æ¹®Çß´ÂÁö ¿©ºÎ Ã¼Å©
+int N; //ì‹œì‘ì ê³¼ ë„ì°©ì ì„ í¬í•¨í•œ ë…¸ë“œ ê°¯ìˆ˜
+int W[SIZE][SIZE];  //ê²½ë¡œ ë¹„ìš© ë°°ì—´
+int dist[SIZE];  //startì—ì„œë¶€í„° ìµœì†Œ ê±°ë¦¬ë¥¼ ì €ì¥í•˜ëŠ” ë°°ì—´
+int prenode[SIZE]; //ì´ì „ë…¸ë“œë¥¼ ì €ì¥í•˜ëŠ” ë°°ì—´
+bool visit[SIZE];  //ë°©ë¬¸í–ˆëŠ”ì§€ ì—¬ë¶€ ì²´í¬
 int stack[SIZE];
 int top = -1;
 
@@ -21,7 +21,7 @@ int pop() {
 	return stack[top--];
 }
 
-int minindex() {     //¹æ¹®ÇÏÁö ¾ÊÀº ³ëµå Áß ÃÖ¼Ò °ªÀ» °¡Áø index ¹İÈ¯
+int minindex() {     //ë°©ë¬¸í•˜ì§€ ì•Šì€ ë…¸ë“œ ì¤‘ ìµœì†Œ ê°’ì„ ê°€ì§„ index ë°˜í™˜
 	int min = INF, index = 0;
 	for (int i = 0; i < N; i++) {
 		if (dist[i] < min && !visit[i]) {
@@ -32,34 +32,34 @@ int minindex() {     //¹æ¹®ÇÏÁö ¾ÊÀº ³ëµå Áß ÃÖ¼Ò °ªÀ» °¡Áø index ¹İÈ¯
 	return index;
 }
 
-void dijkstra(){     //´ÙÀÍ½ºÆ®¶ó ¾Ë°í¸®Áò
+void dijkstra(){     //ë‹¤ìµìŠ¤íŠ¸ë¼ ì•Œê³ ë¦¬ì¦˜
 	for (int i = 0; i < N; i++) {
-		if (W[START][i] == 0 && i != START) {  //Á¸ÀçÇÏÁö ¾ÊÀº °æ·Î °ªÀ» 0ÀÌ ¾Æ´Ñ ¹«ÇÑÀ¸·Î ÇÔ
+		if (W[START][i] == 0 && i != START) {  //ì¡´ì¬í•˜ì§€ ì•Šì€ ê²½ë¡œ ê°’ì„ 0ì´ ì•„ë‹Œ ë¬´í•œìœ¼ë¡œ í•¨
 			dist[i] = INF;
 			prenode[i] = INF;
 		}
-		else {								// °æ·Î°¡ Á¸ÀçÇÏ¸é °Å¸®°ªÀ» ÀúÀå
+		else {								// ê²½ë¡œê°€ ì¡´ì¬í•˜ë©´ ê±°ë¦¬ê°’ì„ ì €ì¥
 			dist[i] = W[START][i]; 
 			prenode[i] = START;
 		}
 	}
-	visit[START] = true;   //START ³ëµå´Â ¹æ¹®ÇßÀ¸¹Ç·Î ¹æ¹®Ç¥½Ã
+	visit[START] = true;   //START ë…¸ë“œëŠ” ë°©ë¬¸í–ˆìœ¼ë¯€ë¡œ ë°©ë¬¸í‘œì‹œ
 	for (int i = 0; i < N; i++) { 
-		int current = minindex();   //¹æ¹® ¾ÈÇÑ °÷ Áß °¡Àå ÃÖ¼Ò°ªÀÎ °÷À» ¸ÕÀú ¼±ÅÃ
-		visit[current] = true;      // ¼±ÅÃÇßÀ¸¸é ¹æ¹®Ç¥½Ã
+		int current = minindex();   //ë°©ë¬¸ ì•ˆí•œ ê³³ ì¤‘ ê°€ì¥ ìµœì†Œê°’ì¸ ê³³ì„ ë¨¼ì € ì„ íƒ
+		visit[current] = true;      // ì„ íƒí–ˆìœ¼ë©´ ë°©ë¬¸í‘œì‹œ
 		for (int j = 0; j < N; j++) {
-			if (!visit[j] && W[current][j] != 0) {    //¹æ¹®µµ ¾ÈÇß°í °Å¸®°ªµµ 0ÀÌ ¾Æ´Ï°í
-				if (dist[current] + W[current][j] < dist[j]) {   //ÀúÀåµÇ¾î ÀÖ´Â °Å¸®°ªº¸´Ù °æÀ¯ÇØ¼­ °¡´Â °Å¸®ÇÕÀÌ ´õ ÀÛ´Ù¸é
-					dist[j] = dist[current] + W[current][j];     //°æÀ¯ÇØ¼­ °¡´Â °Å¸®¸¦ ÃÖ¼Ò°ªÀ¸·Î ÀúÀå
-					prenode[j] = current;		//ÀÌÀü ³ëµå¿¡ ´ëÇÑ Á¤º¸ ÀúÀå(°æ·Î Ç¥½Ã¸¦ À§ÇÔ)
+			if (!visit[j] && W[current][j] != 0) {    //ë°©ë¬¸ë„ ì•ˆí–ˆê³  ê±°ë¦¬ê°’ë„ 0ì´ ì•„ë‹ˆê³ 
+				if (dist[current] + W[current][j] < dist[j]) {   //ì €ì¥ë˜ì–´ ìˆëŠ” ê±°ë¦¬ê°’ë³´ë‹¤ ê²½ìœ í•´ì„œ ê°€ëŠ” ê±°ë¦¬í•©ì´ ë” ì‘ë‹¤ë©´
+					dist[j] = dist[current] + W[current][j];     //ê²½ìœ í•´ì„œ ê°€ëŠ” ê±°ë¦¬ë¥¼ ìµœì†Œê°’ìœ¼ë¡œ ì €ì¥
+					prenode[j] = current;		//ì´ì „ ë…¸ë“œì— ëŒ€í•œ ì •ë³´ ì €ì¥(ê²½ë¡œ í‘œì‹œë¥¼ ìœ„í•¨)
 				}
 			}
 		}
 	}
 }
-void route() {        //°æ·Î ÃßÀûÇÏ´Â ÇÔ¼ö (¹éÆ®·¢Å· »ç¿ë)
-	int node = END;     //µµÂøÁöºÎÅÍ ½ÃÀÛÇØ¼­ prenode¹è¿­¿¡ ÀúÀåµÇ¾î ÀÖ´Â °ªÀ» È°¿ëÇØ °æ·Î¸¦ ÃßÀûÇÑ´Ù.
-	push(node);         //½ºÅÃ¿¡ ¸¶Áö¸·ºÎÅÍ ³Ö¾î¼­ START³ëµå¸¦ ³ÖÀ»¶§±îÁö ÀúÀåÇÑ ÈÄ popÇÑ´Ù.
+void route() {        //ê²½ë¡œ ì¶”ì í•˜ëŠ” í•¨ìˆ˜ (ë°±íŠ¸ë™í‚¹ ì‚¬ìš©)
+	int node = END;     //ë„ì°©ì§€ë¶€í„° ì‹œì‘í•´ì„œ prenodeë°°ì—´ì— ì €ì¥ë˜ì–´ ìˆëŠ” ê°’ì„ í™œìš©í•´ ê²½ë¡œë¥¼ ì¶”ì í•œë‹¤.
+	push(node);         //ìŠ¤íƒì— ë§ˆì§€ë§‰ë¶€í„° ë„£ì–´ì„œ STARTë…¸ë“œë¥¼ ë„£ì„ë•Œê¹Œì§€ ì €ì¥í•œ í›„ popí•œë‹¤.
 	while (1) {
 		push(prenode[node]);
 		node = prenode[node];
@@ -72,12 +72,12 @@ int main() {
 	scanf("%d", &N);
 	for (int i = 0; i < N; i++) {
 		for (int j = 0; j < N; j++) {
-			scanf("%d", &W[i][j]);    //°æ·Î ºñ¿ë ÀÔ·Â
+			scanf("%d", &W[i][j]);    //ê²½ë¡œ ë¹„ìš© ì…ë ¥
 		}
 	}
 	dijkstra();
-	printf("\n"); printf("START¿¡¼­ °¢ ³ëµå±îÁöÀÇ ÃÖ´Ü °Å¸® : ");
+	printf("\n"); printf("STARTì—ì„œ ê° ë…¸ë“œê¹Œì§€ì˜ ìµœë‹¨ ê±°ë¦¬ : ");
 	for (int i = 0; i < N; i++) printf("%d ", dist[i]);
-	printf("\nSTART¿¡¼­ END±îÁöÀÇ ÃÖ´Ü °Å¸® : %d\n", dist[N - 1]);
-	printf("\nStart¿¡¼­ END±îÁö ÃÖ´Ü °æ·Î : "); route();
+	printf("\nSTARTì—ì„œ ENDê¹Œì§€ì˜ ìµœë‹¨ ê±°ë¦¬ : %d\n", dist[N - 1]);
+	printf("\nStartì—ì„œ ENDê¹Œì§€ ìµœë‹¨ ê²½ë¡œ : "); route();
 }
