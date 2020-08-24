@@ -9,11 +9,7 @@ int min(int a, int b) { return a < b ? a : b; }
 int tsp(int x, int visit)
 {
 	if (dp[x][visit] > -1) return dp[x][visit];		//dp에 저장된 값이 있으면 그 값을 바로 반환
-	if (visit == (1 << N) - 1)			//모든 노드를 다 방문했을 경우
-	{
-		if (W[x][0] != 0) return W[x][0];		//x에서 출발지까지의 길이 있다면 그 경로의 비용 반환
-		return INF;								//길이 없으면 무한 반환
-	}
+	
 	int res = INF;					//res를 무한으로 지정
 	for (int i = 0; i < N; i++)
 	{
