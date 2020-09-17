@@ -1,7 +1,7 @@
 #include <stdio.h>
 int dp[11];  //dp
 int partial_sum(int n) {
-    if (n == 1) return 1;    // 초기값 지정
+    if (n == 1) return 1;    //초기값 지정
     if (n == 2) return 2;
     if (n == 3) return 4;
     if (dp[n] != 0) return dp[n];  //dp 배열에 저장되어 있으면 그 값을 사용
