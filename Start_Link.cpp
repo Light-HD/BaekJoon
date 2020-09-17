@@ -21,9 +21,9 @@ int synergy_gap() {					//두 팀의 시너지 합의 차이를 구하는 함수
 	return abs(a - b);		//두 팀의 시너지 차이의 절대값
 }
 void dfs(int member, int num_team) {			//start 팀에 들어갈 멤버와 현재 팀수를 매개변수로 받음
-	if (num_team == (N / 2) + 1) {				//팀 구성 완료되면
+	if (num_team == (N / 2) + 1) {				//start팀 구성 완료
 		int j = 1;					
-		for (int i = 1; i <= N; i++) {			//
+		for (int i = 1; i <= N; i++) {			//link 팀도 check배열이 0인 경우를 넣어서 구성 완료
 			if (check[i] == 0) {
 				link[j] = i; j++;
 			}
