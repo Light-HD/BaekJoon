@@ -22,7 +22,7 @@ void dfs(int result, int order) {		//dfs
 		if (op[i] > 0) {					//연산자 다 썼는지 확인
 			op[i]--;						//연산자를 뺀후 그 다음 dfs로 재귀
 			dfs(cal(result, num[order], i), order + 1);
-			op[i]++;						//다른 경우를 생각하기 위해 다시 연산자 갯수 늘려줌
+			op[i]++;						//다른 경우를 위해 다시 연산자 갯수 늘려줌
 		}
 	}
 }
