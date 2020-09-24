@@ -4,17 +4,17 @@ int N;
 int paper[129][129];
 int white, blue;
 
-void divide(int x, int y, int length) {				//³ª´©¾î¼­ Á¤»ç°¢ÇüÀ» ÆÇ´ÜÇÏ´Â ÇÔ¼ö
+void divide(int x, int y, int length) {				//ë‚˜ëˆ„ì–´ì„œ ì •ì‚¬ê°í˜•ì„ íŒë‹¨í•˜ëŠ” í•¨ìˆ˜
 	int wc = 0, bc = 0;
-	for (int i = x; i < x+length; i++) {			//x½ÃÀÛÁ¡¿¡¼­ ±æÀÌ¸¸Å­
-		for (int j = y; j < y+length; j++) {		//y½ÃÀÛÁ¡¿¡¼­ ±æÀÌ¸¸Å­
-			if (paper[i][j] == 0) wc++;				//0ÀÌ¸é wc ++
-			else bc++;								//1ÀÌ¸é bc ++
+	for (int i = x; i < x+length; i++) {			//xì‹œì‘ì ì—ì„œ ê¸¸ì´ë§Œí¼
+		for (int j = y; j < y+length; j++) {		//yì‹œì‘ì ì—ì„œ ê¸¸ì´ë§Œí¼
+			if (paper[i][j] == 0) wc++;				//0ì´ë©´ wc ++
+			else bc++;						//1ì´ë©´ bc ++
 		}
 	}
-	if (wc == length * length) white++;				//wcÄ«¿îÆ® Çß´ø°Ô ³ĞÀÌ¸¸Å­ ÀÖÀ¸¸é 0À¸·Î ²ËÂù°ÍÀÌ¹Ç·Î white °¹¼ö Áõ°¡
-	else if (bc == length * length) blue++;			//bcÄ«¿îÆ® Çß´ø°Ô ³ĞÀÌ¸¸Å­ ÀÖÀ¸¸é 1·Î ²ËÂù°ÍÀÌ¹Ç·Î blue °¹¼ö Áõ°¡
-	else {											//µÑ´Ù ¾Æ´Ï¶ó¸é 4µîºĞÀ¸·Î ³ª´®	
+	if (wc == length * length) white++;		//wcì¹´ìš´íŠ¸ í–ˆë˜ê²Œ ë„“ì´ë§Œí¼ ìˆìœ¼ë©´ 0ìœ¼ë¡œ ê½‰ì°¬ê²ƒì´ë¯€ë¡œ white ê°¯ìˆ˜ ì¦ê°€
+	else if (bc == length * length) blue++;		//bcì¹´ìš´íŠ¸ í–ˆë˜ê²Œ ë„“ì´ë§Œí¼ ìˆìœ¼ë©´ 1ë¡œ ê½‰ì°¬ê²ƒì´ë¯€ë¡œ blue ê°¯ìˆ˜ ì¦ê°€
+	else {											//ë‘˜ë‹¤ ì•„ë‹ˆë¼ë©´ 4ë“±ë¶„ìœ¼ë¡œ ë‚˜ëˆ”	
 		divide(x, y, length / 2);
 		divide(x + (length / 2),y, length / 2);
 		divide(x, y + (length / 2), length / 2);
