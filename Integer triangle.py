@@ -8,7 +8,7 @@ for i in range(n-1):
             triangle[i+1][0] += triangle[i][0]
         elif (j == i+1): # 젤 오른쪽 경우
             triangle[j][j] += triangle[i][i]
-        else : # 중간 값은 더 높은 값으로 업데이트
+        else : # 사이 값은 더 높은 값으로 업데이트
             #i = 1
             triangle[i+1][j] += max(triangle[i][j-1],triangle[i][j])
 print(max(triangle[n-1]))
