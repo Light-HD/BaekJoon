@@ -28,20 +28,20 @@ public class Main {
 				int end = num;
 				boolean is = false;
 				while (true) {
-					if(start < 0) {
+					if(start < 0) { // 경계 검사
 						start++;
 						end--;
 						break;
-					}else if(end >= n) {
+					}else if(end >= n) { // 경계 검사
 						end--;
 						start++;
 						break;
 					}
-					if(sw[start] == sw[end]) {
+					if(sw[start] == sw[end]) { // 대칭 검사
 						start--;
 						end++;
 						is = true;
-					}else {
+					}else { // 대칭 검사
 						start++;
 						end--;
 						break;
@@ -57,18 +57,12 @@ public class Main {
 				break;
 			}
 		}
-		int cnt = 0;
+		/* 20개씩 출력 */
 		for(int j=0; j<n; j++) {
-			if(cnt == 20) {
+			if(j != 0 && (j) % 20 == 0) {
 				System.out.println();
-				cnt = 0;
 			}
-			if(j == n-1) {
-				System.out.println(sw[j]);
-			}else {
-				System.out.print(sw[j]+" ");
-				cnt++;
-			}
+			System.out.print(sw[j]+" ");
 		}
 	}
 }
