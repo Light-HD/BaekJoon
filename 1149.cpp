@@ -23,3 +23,4 @@ int main() {
 			scanf("%d", &A[i][j]);
 	printf("%d", min(min(RGB(T)[0], RGB(T)[1]), RGB(T)[2]));
 }
+//
