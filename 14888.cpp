@@ -37,3 +37,4 @@ int main() {
 	dfs(num[0], 1);
 	printf("%d\n%d\n", max, min);
 }
+//
