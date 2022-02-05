@@ -54,3 +54,4 @@ int main() {
 	dfs(2, 2);									//2번째의 2번부터 시작
 	printf("%d\n",min);
 }
+//
