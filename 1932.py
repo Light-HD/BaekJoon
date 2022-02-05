@@ -12,3 +12,4 @@ for i in range(n-1):
             #i = 1
             triangle[i+1][j] += max(triangle[i][j-1],triangle[i][j])
 print(max(triangle[n-1]))
+#
