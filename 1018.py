@@ -32,3 +32,4 @@ for i in range(a-7):
         if(min(count) < result):
             result = min(count)
 print(result)
+#
