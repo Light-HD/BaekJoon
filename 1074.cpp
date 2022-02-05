@@ -31,3 +31,4 @@ int main() {
 	findP(N, r, c);
 	printf("%d", sum);
 }
+//
