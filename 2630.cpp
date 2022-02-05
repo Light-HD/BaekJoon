@@ -31,3 +31,4 @@ int main() {
 	divide(0,0,N);
 	printf("%d\n%d", white, blue);
 }
+//
