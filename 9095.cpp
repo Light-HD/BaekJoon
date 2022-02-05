@@ -16,3 +16,4 @@ int main() {
         printf("%d\n", partial_sum(n));
     }
 }
+//
