@@ -29,3 +29,4 @@ int main() {
 		printf("%llu\n", wh(w[j], 0));
 	}
 }
+//
