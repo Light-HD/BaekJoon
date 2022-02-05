@@ -9,3 +9,4 @@ int main() {
 	}
 	printf("%d %d", A, B);
 }
+//
