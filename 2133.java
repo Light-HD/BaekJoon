@@ -6,7 +6,7 @@ public class Main {
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int N = Integer.parseInt(br.readLine());
-		int[] dp = N < 5 ? new int[5] : new int[N+1];
+		int[] dp = N < 3 ? new int[3] : new int[N+1];
 		dp[2] = 3;
 		if(N >= 4 && N % 2 == 0) {
 			// f(n) = f(n-2) * f(2) + (f(n-4) * 2 + f(n-6) * 2) + 2
